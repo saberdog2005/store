@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STORE — minimalist hand-drawn department store in Dallas, Texas. Brick & mortar since 1952. Quality goods, sketched with care.">
+    <title>STORE • Dallas</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for hand-drawn & minimalist feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Inter:wght@400;500&amp;display=swap');
+        
+        :root {
+            --tw-color-paper: #f8f4eb;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .handwritten {
+            font-family: 'Kalam', cursive;
+        }
+        
+        .sketch-text {
+            position: relative;
+        }
+        
+        .sketch-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1a1a1a 30%, #1a1a1a 70%, transparent);
+            opacity: 0.15;
+            transform: rotate(-2deg);
+        }
+        
+        .hero-svg {
+            filter: drop-shadow(8px 12px 6px rgba(26, 26, 26, 0.15));
+        }
+        
+        .sketch-border {
+            border: 3px solid #1a1a1a;
+            border-radius: 4px;
+            box-shadow: 
+                4px 4px 0 -1px #1a1a1a,
+                -2px -2px 0 -1px #1a1a1a;
+            position: relative;
+        }
+        
+        .sketch-border::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid #1a1a1a;
+            border-radius: 6px;
+            opacity: 0.2;
+            transform: rotate(1.5deg);
+            z-index: -1;
+        }
+        
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 6px;
+            background: #c2410f;
+            bottom: -4px;
+            left: 20%;
+            opacity: 0.25;
+            transform: rotate(-3deg);
+        }
+        
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px) rotate(1deg);
+            box-shadow: 12px 12px 0 -2px #1a1a1a;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1a1a1a;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .toast {
+            animation: toastIn 0.3s ease forwards;
+        }
+        
+        @keyframes toastIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Paper texture background */
+        .paper-bg {
+            background: #f8f4eb;
+            background-image: 
+                linear-gradient(#e8d9c2 1px, transparent 0),
+                linear-gradient(90deg, #e8d9c2 1px, transparent 0);
+            background-size: 24px 24px;
+            opacity: 0.92;
+        }
+    </style>
+</head>
+<body class="paper-bg text-stone-900">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b-4 border-stone-900 sticky top-0 z-50 shadow-[4px_4px_0_-1px_#1a1a1a]">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <!-- Hand-drawn store icon SVG -->
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                        <rect x="8" y="18" width="32" height="24" rx="2" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/>
+                        <!-- door -->
+                        <rect x="20" y="26" width="8" height="16" rx="1" stroke="#1a1a1a" stroke-width="3"/>
+                        <!-- roof -->
+                        <path d="M6 18 L24 6 L42 18" stroke="#1a1a1a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+                        <!-- STORE sign -->
+                        <text x="13" y="15" font-family="Kalam, cursive" font-size="9" fill="#c2410f" font-weight="700">STORE</text>
+                        <!-- windows -->
+                        <rect x="13" y="22" width="6" height="6" stroke="#1a1a1a" stroke-width="2"/>
+                        <rect x="29" y="22" width="6" height="6" stroke="#1a1a1a" stroke-width="2"/>
+                    </svg>
+                    <h1 class="handwritten text-5xl tracking-[-2px] leading-none">STORE</h1>
+                    <div class="text-xs font-medium uppercase tracking-[2px] leading-tight pt-1">
+                        DALLAS<br>
+                        <span class="text-stone-500">est. 1952</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-lg font-medium">
+                    <a href="#shop" onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})" class="nav-link">SHOP</a>
+                    <a href="#departments" onclick="document.getElementById('departments-section').scrollIntoView({behavior: 'smooth'})" class="nav-link">DEPARTMENTS</a>
+                    <a href="#about" onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'})" class="nav-link">OUR STORY</a>
+                    <a href="#locations" onclick="document.getElementById('locations-section').scrollIntoView({behavior: 'smooth'})" class="nav-link">VISIT US</a>
+                    <a href="#journal" onclick="document.getElementById('journal-section').scrollIntoView({behavior: 'smooth'})" class="nav-link">JOURNAL</a>
+                </div>
+
+                <!-- Right side actions -->
+                <div class="flex items-center gap-x-6">
+                    <!-- Search -->
+                    <button onclick="toggleSearch()" class="flex items-center gap-x-2 text-stone-700 hover:text-stone-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 01-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <span class="hidden sm:inline text-sm font-medium">SEARCH</span>
+                    </button>
+
+                    <!-- Cart -->
+                    <button onclick="toggleCart()" class="flex items-center relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-[#c2410f] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Mobile hamburger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center">
+                        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-stone-900 px-8 py-6 flex flex-col gap-y-6 text-xl font-medium">
+                <a href="#shop" onclick="toggleMobileMenu();document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})" class="py-2">SHOP</a>
+                <a href="#departments" onclick="toggleMobileMenu();document.getElementById('departments-section').scrollIntoView({behavior: 'smooth'})" class="py-2">DEPARTMENTS</a>
+                <a href="#about" onclick="toggleMobileMenu();document.getElementById('about-section').scrollIntoView({behavior: 'smooth'})" class="py-2">OUR STORY</a>
+                <a href="#locations" onclick="toggleMobileMenu();document.getElementById('locations-section').scrollIntoView({behavior: 'smooth'})" class="py-2">VISIT US</a>
+                <a href="#journal" onclick="toggleMobileMenu();document.getElementById('journal-section').scrollIntoView({behavior: 'smooth'})" class="py-2">JOURNAL</a>
+                <div class="pt-4 border-t border-stone-300 flex justify-between text-sm">
+                    <a href="https://www.instagram.com" target="_blank" class="flex items-center gap-x-1">INSTAGRAM</a>
+                    <a href="https://www.facebook.com" target="_blank" class="flex items-center gap-x-1">FACEBOOK</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left text -->
+            <div class="md:col-span-7">
+                <div class="max-w-xl">
+                    <div class="inline-flex items-center gap-x-2 bg-white sketch-border px-5 py-2 mb-6">
+                        <div class="w-2 h-2 bg-[#c2410f] rounded-full animate-pulse"></div>
+                        <span class="uppercase text-sm font-medium tracking-[1.5px]">DALLAS, TEXAS • OPEN TODAY 10–7</span>
+                    </div>
+                    
+                    <h1 class="handwritten text-[92px] md:text-[108px] leading-[0.85] tracking-[-4px] mb-2">
+                        WELCOME TO<br>STORE
+                    </h1>
+                    
+                    <p class="text-3xl text-stone-600 mb-10 max-w-md">
+                        Hand-drawn quality.<br>
+                        Brick-and-mortar soul.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})" 
+                                class="sketch-border bg-[#c2410f] hover:bg-stone-900 text-white px-10 py-5 text-2xl font-medium flex items-center gap-x-3">
+                            SHOP NOW
+                            <span class="text-4xl leading-none">→</span>
+                        </button>
+                        
+                        <button onclick="document.getElementById('locations-section').scrollIntoView({behavior: 'smooth'})" 
+                                class="sketch-border border-stone-900 px-10 py-5 text-2xl font-medium flex items-center">
+                            FIND OUR DOORS
+                        </button>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-x-8 text-sm">
+                        <div class="flex -space-x-4">
+                            <div class="w-8 h-8 bg-amber-200 rounded-2xl border-2 border-white flex items-center justify-center text-xl">🧥</div>
+                            <div class="w-8 h-8 bg-teal-200 rounded-2xl border-2 border-white flex items-center justify-center text-xl">🏠</div>
+                            <div class="w-8 h-8 bg-rose-200 rounded-2xl border-2 border-white flex items-center justify-center text-xl">📻</div>
+                        </div>
+                        <p class="max-w-[220px] text-stone-500 leading-tight">
+                            Curated by hand since 1952.<br>
+                            <span class="font-medium text-stone-700">Over 18,000 sq ft of timeless finds.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero illustration SVG -->
+            <div class="md:col-span-5 relative flex justify-center">
+                <svg id="hero-svg" width="520" height="520" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg w-full max-w-[520px]">
+                    <!-- Paper shadow -->
+                    <rect x="30" y="40" width="460" height="460" rx="12" fill="#fff" opacity="0.6"/>
+                    <!-- Main building -->
+                    <rect x="110" y="150" width="300" height="260" rx="8" stroke="#1a1a1a" stroke-width="18" stroke-linejoin="round"/>
+                    <!-- Roof -->
+                    <path d="M95 150 L260 70 L425 150" stroke="#1a1a1a" stroke-width="22" stroke-linejoin="round"/>
+                    <!-- Chimney -->
+                    <rect x="310" y="95" width="28" height="55" rx="4" stroke="#1a1a1a" stroke-width="12"/>
+                    <!-- Big windows -->
+                    <rect x="150" y="190" width="55" height="55" rx="4" stroke="#1a1a1a" stroke-width="10"/>
+                    <rect x="315" y="190" width="55" height="55" rx="4" stroke="#1a1a1a" stroke-width="10"/>
+                    <!-- Door -->
+                    <rect x="225" y="280" width="70" height="130" rx="6" stroke="#1a1a1a" stroke-width="12"/>
+                    <!-- Door handle -->
+                    <circle cx="270" cy="340" r="8" fill="#c2410f"/>
+                    <!-- Awning -->
+                    <path d="M140 280 L260 260 L380 280" stroke="#c2410f" stroke-width="24" stroke-linejoin="round"/>
+                    <!-- STORE sign on awning -->
+                    <text x="175" y="275" font-family="Kalam, cursive" font-size="32" font-weight="700" fill="#fff">STORE</text>
+                    <!-- Left shopper -->
+                    <g transform="translate(60 340)">
+                        <circle cx="20" cy="20" r="18" stroke="#1a1a1a" stroke-width="8"/>
+                        <line x1="20" y1="38" x2="20" y2="85" stroke="#1a1a1a" stroke-width="10"/>
+                        <line x1="8" y1="55" x2="32" y2="75" stroke="#1a1a1a" stroke-width="8"/>
+                        <!-- bag -->
+                        <rect x="32" y="72" width="22" height="25" rx="3" stroke="#c2410f" stroke-width="6"/>
+                    </g>
+                    <!-- Right shopper -->
+                    <g transform="translate(400 340)">
+                        <circle cx="30" cy="20" r="18" stroke="#1a1a1a" stroke-width="8"/>
+                        <line x1="30" y1="38" x2="30" y2="85" stroke="#1a1a1a" stroke-width="10"/>
+                        <line x1="15" y1="55" x2="45" y2="72" stroke="#1a1a1a" stroke-width="8"/>
+                    </g>
+                    <!-- Floating doodles -->
+                    <circle cx="60" cy="120" r="14" fill="none" stroke="#c2410f" stroke-width="6" opacity="0.4"/>
+                    <path d="M420 110 Q440 95 455 115" stroke="#1a1a1a" stroke-width="9" fill="none" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Scroll prompt -->
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-y-1 text-stone-400 text-xs tracking-widest">
+            SCROLL FOR MORE
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-stone-400 to-transparent"></div>
+        </div>
+        
+        <!-- Hand-drawn corner stamp -->
+        <div class="absolute bottom-8 right-8 rotate-12 sketch-border bg-white px-6 py-2 text-xs font-medium flex flex-col items-center leading-none">
+            <span>MINIMALIST</span>
+            <span class="text-[#c2410f] text-xl handwritten">HAND-DRAWN</span>
+            <span>THEME</span>
+        </div>
+    </header>
+
+    <!-- DEPARTMENTS SECTION -->
+    <section id="departments-section" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="flex justify-between items-baseline mb-12">
+            <h2 class="section-header handwritten text-6xl">Departments</h2>
+            <a href="#shop" onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})" class="text-xl flex items-center gap-x-2 group">
+                BROWSE ALL 
+                <span class="group-hover:rotate-45 inline-block">→</span>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <!-- Department 1 -->
+            <div onclick="fakeDepartmentClick('Apparel')" class="sketch-border bg-white p-6 flex flex-col items-center text-center cursor-pointer hover:rotate-[-1deg]">
+                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 18 L22 70 L44 78 L66 70 L66 18 L44 12 Z" stroke="#1a1a1a" stroke-width="9" stroke-linejoin="round"/>
+                    <line x1="32" y1="30" x2="56" y2="30" stroke="#1a1a1a" stroke-width="7"/>
+                </svg>
+                <h3 class="handwritten text-3xl mt-6">Apparel</h3>
+                <p class="text-stone-500 text-sm mt-1">Coats • Shirts • Denim</p>
+            </div>
+            
+            <!-- Department 2 -->
+            <div onclick="fakeDepartmentClick('Home &amp; Living')" class="sketch-border bg-white p-6 flex flex-col items-center text-center cursor-pointer hover:rotate-[1deg]">
+                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="18" y="28" width="52" height="44" rx="4" stroke="#1a1a1a" stroke-width="9"/>
+                    <path d="M28 28 L28 12 L60 12 L60 28" stroke="#1a1a1a" stroke-width="9"/>
+                    <circle cx="44" cy="52" r="8" stroke="#c2410f" stroke-width="6"/>
+                </svg>
+                <h3 class="handwritten text-3xl mt-6">Home &amp; Living</h3>
+                <p class="text-stone-500 text-sm mt-1">Furniture • Tableware • Linens</p>
+            </div>
+            
+            <!-- Department 3 -->
+            <div onclick="fakeDepartmentClick('Electronics')" class="sketch-border bg-white p-6 flex flex-col items-center text-center cursor-pointer hover:rotate-[-1deg]">
+                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="22" width="48" height="36" rx="6" stroke="#1a1a1a" stroke-width="9"/>
+                    <rect x="32" y="42" width="24" height="10" stroke="#1a1a1a" stroke-width="5"/>
+                </svg>
+                <h3 class="handwritten text-3xl mt-6">Electronics</h3>
+                <p class="text-stone-500 text-sm mt-1">Radios • Lamps • Chargers</p>
+            </div>
+            
+            <!-- Department 4 -->
+            <div onclick="fakeDepartmentClick('Beauty')" class="s
